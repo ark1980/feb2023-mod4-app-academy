@@ -1,0 +1,69 @@
+front end dev?
+    visuals
+    client side
+    design
+    UI/UX
+    controlling how the page responds
+
+    Define how requests are sent
+    Define how responses are handled
+
+back end dev?
+    sever
+    databases
+    data flow
+    scalability
+
+    Define how requests are handled
+    Define what is sent as the response
+
+What is an API?
+    A collection of functions and processes that allow an application to respond
+    to requests with features/data.
+
+What is a framework?
+    "scaffolding"
+
+Starting an express app
+    npm init -y
+    npm install
+        express
+        nodemon (devDependencies)
+
+    create primary file
+        app.js
+        import express
+        create an app object using the express package
+        establish a listener
+    
+    add scripts to package.json
+
+End points
+anatomy of an endpoint
+    methods
+        get
+        post
+        put/patch
+        delete
+    path (of the request)
+        string *
+        array of strings/RegEx
+        regular expression
+    response method
+        send (plaintext response, converts to JSON if passed something other than a string)
+        json (sends a json response) *
+        render (server side rendering/html templating)
+        redirect (redirects client to predetermined page)
+
+Taking in User Input
+    Request body content
+        req.body
+        requires app.use(express.json())
+    Route parameters
+        req.params
+        requires end point path to contain "/:xyz"
+            req.params.xyz
+    Query Strings
+        req.query
+        requires url of request to contain "?question=newlinkwhothis"
+            req.query.question

@@ -127,7 +127,8 @@ app.post("/movies", (req, res) => {
  *      Test route: /logo.png
  */
 // Your code here
-
+app.use(express.static("public")); //only works on localhost:8000/logo.png
+// app.use("/static", express.static("public")); //only works on localhost:8000/static/logo.png
 // DO NOT EDIT - Set port and listener
 if (require.main === module) {
     const port = 8000;

@@ -11,7 +11,9 @@ app.use(express.json());
  *     Response (Text): "1.0.0"
  */
 // Your code here
-
+app.get("/version", (req,res) => {
+    res.send("1.0.0");
+})
 /**
  *  Basic Phase 2 - Route param and JSON response
  *      Method: GET
@@ -30,6 +32,15 @@ app.use(express.json());
  */
 // Your code here
 
+app.get("/viewers/:id", (req, res) => {
+  res.json({
+    id: req.params.id,
+    firstName: "Ali",
+    lastName: "Keshanian",
+    birthDate: "09/21/1980",
+    favoriteMovies: ["Star Wars", "The Godfather", "The Dark Knight"],
+  });
+});
 /** Basic Phase 3 - Query params in URL
  *      Method: GET
  *      Route: /info
@@ -48,7 +59,14 @@ app.use(express.json());
  *          message required
  */
 // Your code here
-
+app.get("/info", (req, res) => {
+  const message = req.query.message;
+  if (message) {
+    res.send(message);
+  } else {
+    res.send("message required");
+  }
+});
 /**
  *  IMPORTANT: Scroll to the top for basic phases.
  *
@@ -82,6 +100,16 @@ app.use(express.json());
  *          { "id": 98765432, "name": "Honey Sweet", "year": 1967, "isFavorite": false }
  */
 // Your code here
+app.post("/movies", (req, res) => {
+    const id = Math.floor(Math.random() * 1000);
+    const body = req.body;
+    body.id = id;
+    req.body.year = Number(req.body.year);
+    if (req.body.favorite) body.isFavorite = true;
+    else body.isFavorite = false;
+    res.json(body);
+})
+
 
 /**
  *  Advanced Bonus Phase B - Research how to return static
